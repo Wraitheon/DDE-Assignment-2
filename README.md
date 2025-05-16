@@ -153,7 +153,7 @@ go run main.go --action comments-by-user \
 # 5) All posts in a topic
 
 go run main.go --action posts-by-topic \
- --topicId 6821abcd1234ef567890ghij
+ --topicId 681e6248c41e3572a61be41a
 
 # 6) Top-3 topics by number of posts
 
