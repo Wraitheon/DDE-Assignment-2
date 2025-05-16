@@ -1,0 +1,121 @@
+version: '3.8'
+
+services:
+  # --- Config Servers ---
+  configsvr01:
+    image: mongo:6.0 # Or latest mongo version
+    container_name: configsvr01
+    command: mongod --configsvr --replSet rs-config --port 27017 --dbpath /data/db
+    volumes:
+      - configsvr01_data:/data/db
+    networks:
+      - mongo-cluster_net
+
+  configsvr02:
+    image: mongo:6.0
+    container_name: configsvr02
+    command: mongod --configsvr --replSet rs-config --port 27017 --dbpath /data/db
+    volumes:
+      - configsvr02_data:/data/db
+    networks:
+      - mongo-cluster_net
+
+  configsvr03:
+    image: mongo:6.0
+    container_name: configsvr03
+    command: mongod --configsvr --replSet rs-config --port 27017 --dbpath /data/db
+    volumes:
+      - configsvr03_data:/data/db
+    networks:
+      - mongo-cluster_net
+
+  # --- Shard 1 ---
+  shard01-a:
+    image: mongo:6.0
+    container_name: shard01-a
+    command: mongod --shardsvr --replSet rs-shard01 --port 27017 --dbpath /data/db
+    volumes:
+      - shard01a_data:/data/db
+    networks:
+      - mongo-cluster_net
+
+  shard01-b:
+    image: mongo:6.0
+    container_name: shard01-b
+    command: mongod --shardsvr --replSet rs-shard01 --port 27017 --dbpath /data/db
+    volumes:
+      - shard01b_data:/data/db
+    networks:
+      - mongo-cluster_net
+
+  shard01-c:
+    image: mongo:6.0
+    container_name: shard01-c
+    command: mongod --shardsvr --replSet rs-shard01 --port 27017 --dbpath /data/db
+    volumes:
+      - shard01c_data:/data/db
+    networks:
+      - mongo-cluster_net
+
+  # --- Shard 2 ---
+  shard02-a:
+    image: mongo:6.0
+    container_name: shard02-a
+    command: mongod --shardsvr --replSet rs-shard02 --port 27017 --dbpath /data/db
+    volumes:
+      - shard02a_data:/data/db
+    networks:
+      - mongo-cluster_net
+
+  shard02-b:
+    image: mongo:6.0
+    container_name: shard02-b
+    command: mongod --shardsvr --replSet rs-shard02 --port 27017 --dbpath /data/db
+    volumes:
+      - shard02b_data:/data/db
+    networks:
+      - mongo-cluster_net
+
+  shard02-c:
+    image: mongo:6.0
+    container_name: shard02-c
+    command: mongod --shardsvr --replSet rs-shard02 --port 27017 --dbpath /data/db
+    volumes:
+      - shard02c_data:/data/db
+    networks:
+      - mongo-cluster_net
+
+  # --- Mongos Router ---
+  mongos01:
+    image: mongo:6.0
+    container_name: mongos01
+    command: mongos --configdb rs-config/configsvr01:27017,configsvr02:27017,configsvr03:27017 --bind_ip_all --port 27017
+    ports:
+      - "27017:27017" # Expose mongos to host for Go app and mongoimport
+    depends_on:
+      - configsvr01
+      - configsvr02
+      - configsvr03
+      - shard01-a
+      - shard01-b
+      - shard01-c
+      - shard02-a
+      - shard02-b
+      - shard02-c
+    networks:
+      - mongo-cluster_net
+
+volumes:
+  configsvr01_data:
+  configsvr02_data:
+  configsvr03_data:
+  shard01a_data:
+  shard01b_data:
+  shard01c_data:
+  shard02a_data:
+  shard02b_data:
+  shard02c_data:
+
+networks:
+  mongo-cluster_net:
+    driver: bridge

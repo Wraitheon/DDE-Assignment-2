@@ -1,0 +1,120 @@
+[{
+  "_id": {
+    "$oid": "681e6248c41e3572a61be41a"
+  },
+  "name": "Machine Learning"
+},
+{
+  "_id": {
+    "$oid": "681e6248c41e3572a61be41b"
+  },
+  "name": "Web Development"
+},
+{
+  "_id": {
+    "$oid": "681e6248c41e3572a61be41c"
+  },
+  "name": "Gaming"
+},
+{
+  "_id": {
+    "$oid": "681e6248c41e3572a61be41d"
+  },
+  "name": "Travel"
+},
+{
+  "_id": {
+    "$oid": "681e6248c41e3572a61be41e"
+  },
+  "name": "Music"
+},
+{
+  "_id": {
+    "$oid": "681e6248c41e3572a61be41f"
+  },
+  "name": "Cooking"
+},
+{
+  "_id": {
+    "$oid": "681e6248c41e3572a61be420"
+  },
+  "name": "Health & Wellness"
+},
+{
+  "_id": {
+    "$oid": "681e6248c41e3572a61be421"
+  },
+  "name": "Finance"
+},
+{
+  "_id": {
+    "$oid": "681e6248c41e3572a61be422"
+  },
+  "name": "Movies"
+},
+{
+  "_id": {
+    "$oid": "681e6248c41e3572a61be423"
+  },
+  "name": "Art"
+},
+{
+  "_id": {
+    "$oid": "681e6248c41e3572a61be424"
+  },
+  "name": "Photography"
+},
+{
+  "_id": {
+    "$oid": "681e6248c41e3572a61be425"
+  },
+  "name": "Fitness"
+},
+{
+  "_id": {
+    "$oid": "681e6248c41e3572a61be426"
+  },
+  "name": "Books"
+},
+{
+  "_id": {
+    "$oid": "681e6248c41e3572a61be427"
+  },
+  "name": "Space Exploration"
+},
+{
+  "_id": {
+    "$oid": "681e6248c41e3572a61be428"
+  },
+  "name": "DIY"
+},
+{
+  "_id": {
+    "$oid": "681e6248c41e3572a61be429"
+  },
+  "name": "Education"
+},
+{
+  "_id": {
+    "$oid": "681e6248c41e3572a61be42a"
+  },
+  "name": "Fashion"
+},
+{
+  "_id": {
+    "$oid": "681e6248c41e3572a61be42b"
+  },
+  "name": "Sports"
+},
+{
+  "_id": {
+    "$oid": "681e6248c41e3572a61be42c"
+  },
+  "name": "Environment"
+},
+{
+  "_id": {
+    "$oid": "681e6248c41e3572a61be42d"
+  },
+  "name": "Science"
+}]
